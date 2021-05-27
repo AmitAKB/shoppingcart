@@ -1,0 +1,81 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <a
+        href=""
+        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+      >
+        <i class="fa fa-home"></i>
+      </a>
+      <ul
+        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+      >
+        <li>
+          <a routerLink="/shopping-cart" class="nav-link px-2 text-white"
+            ><i class="fa fa-cart-plus"></i>
+            <span class="badge bg-warning rounded-pill">{{
+              shoppingCartCount
+            }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+        <ng-template #anonymousUser>
+          <li>
+            <a routerLink="/login" class="nav-link px-2 text-white">Login</a>
+          </li>
+        </ng-template>
+
+        <li *ngIf="appUser; else anonymousUser" class="dropdown" ngbDropdown>
+          <a
+            ngbDropdownToggle
+            class="nav-link px-2 text-white dropdown-toggle"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ appUser?.name }}
+          </a>
+          <ul
+            ngbDropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton1"
+          >
+            <li>
+              <a class="dropdown-item" routerLink="/my/orders">My Order</a>
+            </li>
+            <ng-container *ngIf="appUser.isAdmin">
+              <li>
+                <a class="dropdown-item" routerLink="/admin/products"
+                  >Admin Products</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/admin/orders"
+                  >Admin Orders</a
+                >
+              </li>
+            </ng-container>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input
+          type="search"
+          class="form-control form-control-dark"
+          placeholder="Search..."
+        />
+      </form> -->
+
+      <!-- <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2">Login</button>
+        <button type="button" class="btn btn-warning">Sign-up</button>
+      </div> -->
+    </div>
+  </div>
+</header>

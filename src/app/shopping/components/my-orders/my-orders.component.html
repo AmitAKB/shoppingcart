@@ -1,0 +1,27 @@
+<h3>Shopping Cart</h3>
+<ng-container *ngIf="order">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sr No.</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of order; let i = index">
+        <td>
+          {{ i + 1 }}
+        </td>
+        <td>
+          {{ p.name }}
+        </td>
+        <td>{{ p.datePlaced | date }}</td>
+        <td>
+          <a routerLink="/"> View </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+/* Importing Bootstrap SCSS file. */
+// @import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/css/font-awesome.css";
+
+$primary-color: #74e600;
+$dark-primary-color: #4d9a00;
+
+body main {
+  margin-top: 20px;
+}
+
+.bg-dark {
+  background-color: $primary-color !important;
+}
+.btn-primary,
+.list-group-item.active,
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+a {
+  color: $primary-color;
+}
+.btn-primary:hover,
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: $dark-primary-color;
+  border-color: $dark-primary-color;
+}
+
+.form-control:focus {
+  border-color: $primary-color;
+  box-shadow: 0 0 0 0.25rem rgb(116 230 0 / 25%);
+}

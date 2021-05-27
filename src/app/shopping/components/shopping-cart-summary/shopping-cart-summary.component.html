@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Order Summary</h5>
+    <p class="card-text">
+      You have {{ cart.count }} items in your shopping cart.
+    </p>
+    <ul class="list-group">
+      <li *ngFor="let c of cart.items" class="list-group-item">
+        {{ c.quantity }} X {{ c.title }}
+        <div class="float-end">
+          {{ c.quantity * c.price | currency: "USD":true }}
+        </div>
+      </li>
+      <li class="list-group-item fw-bold">
+        Total Price
+        <div class="float-end">
+          {{ cart.totalPrice | currency: "USD":true }}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

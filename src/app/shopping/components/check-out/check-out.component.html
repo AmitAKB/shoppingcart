@@ -1,0 +1,9 @@
+<h3>Checkout Details</h3>
+<div class="row">
+  <div class="col-md-6">
+   <shopping-form [cart]='cart'></shopping-form>
+  </div>
+  <div class="col-md-6" *ngIf="cart &&cart.items &&cart.items.length>0">
+    <shopping-cart-summary [cart]="cart"></shopping-cart-summary>
+  </div>
+</div>

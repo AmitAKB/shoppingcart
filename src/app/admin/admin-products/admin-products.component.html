@@ -1,0 +1,54 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+<p>
+  <input
+    type="text"
+    #query
+    (keyup)="filter(query.value)"
+    class="form-control"
+  />
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of filterData">
+      <td>{{ p.title }}</td>
+      <td>{{ p.price }}</td>
+      <td>
+        <a [routerLink]="['/admin/products', p.product_id]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- 
+<data-table [items]="items" [itemsCount]="itemsCount">
+  <data-table-column
+    [propety]="'title'"
+    [header]="'Title'"
+    [sortable]="true"
+    [resizable]="true"
+  ></data-table-column>
+  <data-table-column
+    [propety]="'price'"
+    [header]="'Price'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+    <ng-template #dataTableCell let-item="item">
+      <span>{{ item.price | currency: "USD" }}</span>
+    </ng-template>
+  </data-table-column>
+  <data-table-column [header]="'Action'">
+    <a [routerLink]="['/admin/products', p.product_id]">Edit</a>
+  </data-table-column>
+</data-table> -->

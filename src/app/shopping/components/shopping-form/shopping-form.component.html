@@ -1,0 +1,85 @@
+<form #addressValue="ngForm" (ngSubmit)="placeOrder(addressValue.value)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      #name="ngModel"
+      [(ngModel)]="address.name"
+      name="name"
+      id="name"
+      type="text"
+      class="form-control"
+      required
+    />
+    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      Name is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address1">Address 1</label>
+    <input
+      #address1="ngModel"
+      [(ngModel)]="address.address1"
+      name="address1"
+      id="address1"
+      type="text"
+      class="form-control"
+      required
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="address1.touched && address1.invalid"
+    >
+      Address 1 is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address2">Address 2</label>
+    <input
+      #address2="ngModel"
+      [(ngModel)]="address.address2"
+      name="address2"
+      id="address2"
+      type="text"
+      class="form-control"
+      required
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="address2.touched && address2.invalid"
+    >
+      Address-2 is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input
+      #city="ngModel"
+      [(ngModel)]="address.city"
+      name="city"
+      id="city"
+      type="text"
+      class="form-control"
+      required
+    />
+    <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+      city is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pincode">Pincode</label>
+    <input
+      #pincode="ngModel"
+      [(ngModel)]="address.pincode"
+      name="pincode"
+      id="pincode"
+      type="text"
+      class="form-control"
+      required
+    />
+    <div class="alert alert-danger" *ngIf="pincode.touched && pincode.invalid">
+      Pincode is required.
+    </div>
+  </div>
+  <br />
+  <button [disabled]='!addressValue.valid' type="submit" class="btn btn-primary">Place Order</button> &nbsp;
+</form>
